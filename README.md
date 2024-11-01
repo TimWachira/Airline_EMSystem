@@ -127,7 +127,7 @@
     flight2.add_crew_member(pilotP2)
     flight2.add_crew_member(attendantA2)
 
-    # Creating the  booking system
+    # Creating the  booking system (Create)
     booking_system = Booking()
 
     # Add bookings (Update)
