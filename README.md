@@ -59,3 +59,48 @@ class DomesticFlight(Flight):
     def display_info(self):  # Polymorphism - Overriding display_info method
         super().display_info()
         print("Domestic Flight - No passport required.")
+
+
+
+
+# Created Booking Class
+class Booking:
+    def __init__(self):
+        self.bookings = []
+
+    def create_booking(self, flight, passenger):
+        flight.add_passenger(passenger)
+        self.bookings.append((flight, passenger))
+
+    def cancel_booking(self, flight, passenger_id):
+        flight.remove_passenger(passenger_id)
+        self.bookings = [b for b in self.bookings if b[1].passenger_id != passenger_id]
+
+    def show_bookings(self):
+        for flight, passenger in self.bookings:
+            print(f"Booking: {passenger.name} on Flight {flight.flight_number}")
+
+
+
+
+# Created CrewMembers Class
+class Pilot:
+    def __init__(self, pilot_id, name, experience_years, rank):
+        self.pilot_id = pilot_id
+        self.name = name
+        self.experience_years = experience_years
+        self.rank = rank
+
+    def display_info(self):
+        print(f"Pilot ID: {self.pilot_id}, Name: {self.name}, Experience: {self.experience_years} years, Rank: {self.rank}")
+
+class FlightAttendant:
+    def __init__(self, attendant_id, name, language):
+        self.attendant_id = attendant_id
+        self.name = name
+        self.language = language
+
+    def display_info(self):
+        print(f"Attendant ID: {self.attendant_id}, Name: {self.name}, Language: {self.language}")
+
+
