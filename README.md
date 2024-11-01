@@ -1,3 +1,5 @@
+# Abstract Class to help in the OOP concepts
+
 from abc import ABC, abstractmethod
 
 class FlightBase(ABC):
